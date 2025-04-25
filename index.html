@@ -23,7 +23,7 @@
         }
         .progress-bar {
             height: 30px;
-            width: 0%;
+            width: 0%; /* Default to 0% */
             background-color: #4CAF50;
             text-align: center;
             color: white;
@@ -36,4 +36,57 @@
             font-weight: bold;
             color: #4CAF50;
         }
-        .task
+        .task.pending .status {
+            color: #FF9800;
+        }
+        .task.completed .status {
+            color: #4CAF50;
+        }
+        .task .description {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>ITFarm Unity Project - Development Progress</h1>
+    
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progress-bar">0%</div>
+    </div>
+    
+    <!-- Task List -->
+    <div class="task pending">
+        <span class="status">🛠️ In Progress</span>
+        <span class="description">Create Unity Scene (Terrain, Skybox, Lighting)</span>
+    </div>
+    
+    <div class="task pending">
+        <span class="status">🛠️ In Progress</span>
+        <span class="description">3x3 Farm Grid Layout</span>
+    </div>
+    
+    <div class="task completed">
+        <span class="status">✅ Completed</span>
+        <span class="description">Add Player Control (WASD movement)</span>
+    </div>
+    
+    <div class="task pending">
+        <span class="status">🛠️ In Progress</span>
+        <span class="description">Plant Selection Popup</span>
+    </div>
+    
+    <div class="task pending">
+        <span class="status">🛠️ In Progress</span>
+        <span class="description">Outfit Switch Feature</span>
+    </div>
+
+    <script>
+        // Update progress bar dynamically
+        const progressBar = document.getElementById('progress-bar');
+        let progress = 60;  // Current progress percentage (Update as needed)
+        progressBar.style.width = progress + '%';
+        progressBar.innerText = progress + '%';
+    </script>
+</body>
+</html>
