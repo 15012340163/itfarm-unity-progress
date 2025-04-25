@@ -82,11 +82,25 @@
     </div>
 
     <script>
-        // Update progress bar dynamically
-        const progressBar = document.getElementById('progress-bar');
-        let progress = 60;  // Current progress percentage (Update as needed)
-        progressBar.style.width = progress + '%';
-        progressBar.innerText = progress + '%';
+        // Function to animate the progress bar
+        function updateProgressBar(targetPercentage) {
+            const progressBar = document.getElementById('progress-bar');
+            let currentPercentage = 0;
+            
+            // Animate the progress bar to the target percentage
+            const interval = setInterval(function() {
+                if (currentPercentage >= targetPercentage) {
+                    clearInterval(interval);
+                } else {
+                    currentPercentage++;
+                    progressBar.style.width = currentPercentage + '%';
+                    progressBar.innerText = currentPercentage + '%';
+                }
+            }, 30); // Update every 30ms
+        }
+
+        // Start the progress bar animation (adjust the target percentage as needed)
+        updateProgressBar(60); // Set to 60% for now
     </script>
 </body>
 </html>
